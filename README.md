@@ -5,11 +5,12 @@
 // npm install @mui/material @emotion/react @emotion/styled
 // npm install @mui/icons-material
 
-*https://mui.com/
+// https://mui.com/
 
-## Available Scripts
+## Setting Redux Store
 
-In the project directory, you can run:
+// Creating the StateProvider.js file, with mandatory snippet.
+// Raping our Index.js file with <StateProvide> component.
 
 ### `yarn start`
 
