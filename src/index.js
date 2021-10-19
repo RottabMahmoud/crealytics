@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-// Redux Setup
 import { StateProvider } from "./StateProvider";
 import reducer, { initialState } from "./reducer";
 
