@@ -22,7 +22,7 @@
 // npm install d3
 // https://www.npmjs.com/package/d3
 
-## Set the Pagination to render 100 Items per page
+## Fixed the Pagination to render 100 Items per page
 ## Made a helper functions file, to help manipulate the products to be rendered
 
 ### `yarn start`
