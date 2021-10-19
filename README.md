@@ -18,6 +18,10 @@
 
 ## Rendered the Home Component as our main View in App.js
 
+## Instaleld d3 for CSV data conversion
+// npm install d3
+// https://www.npmjs.com/package/d3
+
 ### `yarn start`
 
 Runs the app in the development mode.\
