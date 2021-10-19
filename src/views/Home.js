@@ -6,12 +6,18 @@ import Header from "../components/Header";
 import { csv } from "d3";
 
 function Home() {
-  const [data, setData] = useState([]);
+  // Our list of Products **state, using React Hooks
+  const [products, setProducts] = useState();
+  /**
+   * Use effect to fetch the data once the component is rendered,
+   * and passing and empty array as the second argument to make it run only once
+   */
   useEffect(() => {
     csv("/data/products.csv").then((data) => {
-      console.log(data, "DATA");
+      setProducts(data);
     });
   }, []);
+  console.log(products, "data");
   return (
     <div>
       <Header />
