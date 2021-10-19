@@ -8,6 +8,7 @@ export default function Header() {
         style={{ margin: "1px" }}
         href="https://crealytics.com/"
         target="_blank"
+        rel="noreferrer"
       >
         <img
           style={{ width: "11em", height: "2em" }}
