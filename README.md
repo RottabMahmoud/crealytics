@@ -1,4 +1,4 @@
-# Getting Started 
+# Getting Started
 
 // Installed Material UI, the component library, using npm:
 // npm install @mui/material
@@ -7,10 +7,16 @@
 
 // https://mui.com/
 
-## Setting up Redux 
+## Setting up Redux
 
 // Creating the StateProvider.js file, with mandatory snippet.
 // Raping our Index.js file with <StateProvide> component.
+
+## Created the Header Component using Appbar from the Material UI components
+
+## Created Home as our main view, and rendered the Header Component as the First Tag
+
+## Rendered the Home Component as our main View in App.js
 
 ### `yarn start`
 
