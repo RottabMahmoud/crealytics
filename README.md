@@ -1,16 +1,20 @@
 # Getting Started
 
-// Installed Material UI, the component library, using npm:
-// npm install @mui/material
-// npm install @mui/material @emotion/react @emotion/styled
-// npm install @mui/icons-material
+## Installed Material UI, the component library, using npm:
 
-// https://mui.com/
+## npm install @mui/material
+
+## npm install @mui/material @emotion/react @emotion/styled
+
+## npm install @mui/icons-material
+
+## npm install @material-ui/core
 
 ## Setting up Redux
 
-// Creating the StateProvider.js file, with mandatory snippet.
-// Raping our Index.js file with <StateProvide> component.
+## Creating the StateProvider.js file, with mandatory snippet.
+
+## Raping our Index.js file with <StateProvide> component.
 
 ## Created the Header Component using Appbar from the Material UI components
 
@@ -19,11 +23,14 @@
 ## Rendered the Home Component as our main View in App.js
 
 ## Instaleld d3 for CSV data conversion
-// npm install d3
-// https://www.npmjs.com/package/d3
+
+## npm install d3
 
 ## Fixed the Pagination to render 100 Items per page
-## Made a helper functions file, to help manipulate the products to be rendered
+
+## Implemented the Search Input Field
+
+## Fixed the Search to work dynamically with the Main Product List Pagination
 
 ### `yarn start`
 
