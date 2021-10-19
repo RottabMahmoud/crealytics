@@ -1,7 +1,10 @@
 # Getting Started 
 
-***Installed Material UI, the component library, using:
-**npm install @mui/material
+// Installed Material UI, the component library, using npm:
+// npm install @mui/material
+// npm install @mui/material @emotion/react @emotion/styled
+// npm install @mui/icons-material
+
 *https://mui.com/
 
 ## Available Scripts
