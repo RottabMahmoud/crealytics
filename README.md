@@ -7,7 +7,7 @@
 
 // https://mui.com/
 
-## Setting Redux Store
+## Setting up Redux 
 
 // Creating the StateProvider.js file, with mandatory snippet.
 // Raping our Index.js file with <StateProvide> component.
