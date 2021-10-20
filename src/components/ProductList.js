@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
     padding: "10px",
   },
 }));
+const PopoverStyle = {
+  top: "50px",
+};
 
 const ProductList = ({ data }) => {
   // Popper State and functions for expansion
@@ -119,9 +122,10 @@ const ProductList = ({ data }) => {
         open={open}
         anchorEl={anchorEl}
         onClose={handleClose}
+        style={PopoverStyle}
         anchorOrigin={{
           vertical: "bottom",
-          horizontal: "left",
+          horizontal: "right",
         }}
       >
         {/*List of Images Component */}
