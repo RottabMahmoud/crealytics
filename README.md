@@ -34,10 +34,11 @@
 
 ## npm i react-virtualized, for handling large Input Autocomplete
 
-## Created Search as a Separate Component, while adding to it the Autocomplete UI, using reac-t virutalized and added the onChange 
+## Created Search as a Separate Component, while adding to it the Autocomplete UI, using reac-t virutalized and added the onChange
+
 ## Functionality as well, on the Search Input Field
 
-## Created a Images Component, and added a Popover Component ro be rendered once an Item is Expanded
+## Created a Images Component, and added a Popover Component to be rendered once an Item is selected for Expansion
 
 ### `yarn start`
 
