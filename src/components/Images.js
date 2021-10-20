@@ -6,7 +6,7 @@ export default function Images({ itemData }) {
   const imagesArray = [];
   itemData.split(",").forEach((x) => imagesArray.push({ img: x }));
   return (
-    <ImageList sx={{ width: "100%", height: "100%", background: "lightgrey"}} cols={3} rowHeight={164}>
+    <ImageList sx={{ width: "auto", height: "auto" }} cols={3} rowHeight={164}>
       {imagesArray.map((item) => (
         <ImageListItem key={item.img}>
           <img

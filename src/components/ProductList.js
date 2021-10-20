@@ -124,8 +124,8 @@ const ProductList = ({ data }) => {
         onClose={handleClose}
         style={PopoverStyle}
         anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "right",
+          vertical: "top",
+          horizontal: "left",
         }}
       >
         {/*List of Images Component */}
