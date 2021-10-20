@@ -62,7 +62,7 @@ export default function Search({ data, setSearch }) {
 
   return (
     <Autocomplete
-      id="grouped-demo"
+      id="virtualize"
       classes={classes}
       style={{ width: 300 }}
       ListboxComponent={ListboxComponent}

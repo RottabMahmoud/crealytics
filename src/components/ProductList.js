@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Search from "./Search.js";
+
 import Typography from "@mui/material/Typography";
+import Popover from "@mui/material/Popover";
 
 import { List, ListItem, makeStyles, Divider, Box } from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
@@ -25,6 +27,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ProductList = ({ data }) => {
+  // Popper State and functions for expansion
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [images, setImages] = useState();
+
+  const handleClick = (event, value) => {
+    setAnchorEl(event.currentTarget);
+    setImages(value);
+    console.log(value, "!@#!@#!@#");
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
   // Search Input field state
   const [searchTerm, setSearchTerm] = useState("");
   // PAGINATION
@@ -70,7 +87,9 @@ const ProductList = ({ data }) => {
               <ListItem
                 key={projectItem.gtin}
                 button
-                onClick={() => console.log("")}
+                onClick={(event) => {
+                  handleClick(event, projectItem.additional_image_link);
+                }}
               >
                 <ListItemText
                   id={projectItem.gtin}
@@ -94,6 +113,18 @@ const ProductList = ({ data }) => {
             );
           })}
       </List>
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+      >
+        <Typography sx={{ p: 2 }}>{images}</Typography>
+      </Popover>
       <Divider />
       {/* Pagination Component */}
       <Box component="span">
