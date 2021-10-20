@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { List } from "react-virtualized";
@@ -58,7 +58,7 @@ const ListboxComponent = React.forwardRef(function ListboxComponent(
 
 export default function Search({ data, setSearch }) {
   const classes = useStyles();
-  const [value, setValue] = React.useState("");
+  const [value] = React.useState("");
 
   return (
     <Autocomplete
