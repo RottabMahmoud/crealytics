@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { List } from "react-virtualized";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  inputRoot: {
+    color: "blue",
+    fontFamily: "Roboto Mono",
+    backgroundColor: "#f2f2f2",
+    "& .MuiOutlinedInput-notchedOutline": {
+      borderWidth: "2px",
+      borderColor: "blue",
+    },
+    "&:hover .MuiOutlinedInput-notchedOutline": {
+      borderWidth: "2px",
+      borderColor: "blue",
+    },
+    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderWidth: "2px",
+      borderColor: "blue",
+    },
+  },
+  clearIndicator: {
+    display: "none",
+  },
+}));
 
 const ListboxComponent = React.forwardRef(function ListboxComponent(
   props,
@@ -33,23 +57,25 @@ const ListboxComponent = React.forwardRef(function ListboxComponent(
 });
 
 export default function Search({ data, setSearch }) {
-  // Handling onTyping to filter the Product List
-  const onTagsChange = (event, values) => {
-    setSearch(event.target.value);
-  };
+  const classes = useStyles();
+  const [value, setValue] = React.useState("");
+
   return (
     <Autocomplete
-      id="virtualize-demo"
+      id="grouped-demo"
+      classes={classes}
       style={{ width: 300 }}
-      disableListWrap
       ListboxComponent={ListboxComponent}
+      onChange={(event, value) => setSearch(value)}
+      onInputChange={() => setSearch(value)}
       options={data.map((x) => x.title)}
       renderInput={(params) => (
         <TextField
           {...params}
-          onChange={onTagsChange}
+          value={value}
+          onChange={(event) => setSearch(event.target.value)}
           variant="outlined"
-          label="10,000 options"
+          label="Search"
           fullWidth
         />
       )}
