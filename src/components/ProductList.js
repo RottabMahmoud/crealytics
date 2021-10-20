@@ -3,6 +3,7 @@ import Search from "./Search.js";
 
 import Typography from "@mui/material/Typography";
 import Popover from "@mui/material/Popover";
+import Images from "../components/Images.js";
 
 import { List, ListItem, makeStyles, Divider, Box } from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
@@ -123,7 +124,8 @@ const ProductList = ({ data }) => {
           horizontal: "left",
         }}
       >
-        <Typography sx={{ p: 2 }}>{images}</Typography>
+        {/*List of Images Component */}
+        <Images itemData={images} />
       </Popover>
       <Divider />
       {/* Pagination Component */}
