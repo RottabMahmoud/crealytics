@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import Search from "./Search.js";
-
 import Typography from "@mui/material/Typography";
-import Popover from "@mui/material/Popover";
-import Images from "../components/Images.js";
-
 import { List, ListItem, makeStyles, Divider, Box } from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-
+import Popover from "@mui/material/Popover";
+import Images from "../components/Images.js";
 import Pagination from "@mui/material/Pagination";
 
 const useStyles = makeStyles((theme) => ({
@@ -31,14 +28,16 @@ const PopoverStyle = {
 };
 
 const ProductList = ({ data }) => {
-  // Popper State and functions for expansion
+  // Search Input field state
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // PopOver State and functions for expansion
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [images, setImages] = useState();
 
   const handleClick = (event, value) => {
     setAnchorEl(event.currentTarget);
     setImages(value);
-    console.log(value, "!@#!@#!@#");
   };
 
   const handleClose = () => {
@@ -46,9 +45,8 @@ const ProductList = ({ data }) => {
   };
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
-  // Search Input field state
-  const [searchTerm, setSearchTerm] = useState("");
-  // PAGINATION
+
+  // PAGINATION Handling
   const classes = useStyles();
   const itemsPerPage = 100;
   const [page, setPage] = React.useState(1);
@@ -68,11 +66,6 @@ const ProductList = ({ data }) => {
     <div>
       <div className="toolbar">
         {/* Our Input Search Field */}
-        {/* <input
-          type="text"
-          placeholder="Search..."
-          onChange={(event) => setSearchTerm(event.target.value)}
-        /> */}
         <Search data={data} setSearch={setSearchTerm} />
       </div>
       <List dense compoent="span">
@@ -117,16 +110,17 @@ const ProductList = ({ data }) => {
             );
           })}
       </List>
+      {/* The Expansion Popover */}
       <Popover
         id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
         style={PopoverStyle}
         anchorOrigin={{
           vertical: "top",
           horizontal: "left",
         }}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        open={open}
       >
         {/*List of Images Component */}
         <Images itemData={images} />
@@ -135,15 +129,15 @@ const ProductList = ({ data }) => {
       {/* Pagination Component */}
       <Box component="span">
         <Pagination
-          count={noOfPages}
-          page={page}
-          onChange={handleChange}
-          defaultPage={1}
+          classes={{ ul: classes.paginator }}
           color="primary"
           size="large"
           showFirstButton
           showLastButton
-          classes={{ ul: classes.paginator }}
+          defaultPage={1}
+          page={page}
+          count={noOfPages}
+          onChange={handleChange}
         />
       </Box>
     </div>

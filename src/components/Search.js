@@ -1,11 +1,11 @@
 import React from "react";
-import TextField from "@material-ui/core/TextField";
+import "../App.css";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import TextField from "@material-ui/core/TextField";
 import { List } from "react-virtualized";
 import { makeStyles } from "@material-ui/core/styles";
 
-import "../App.css";
-
+// Use Styles for styling components
 const useStyles = makeStyles((theme) => ({
   inputRoot: {
     color: "blue",
@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
   paper: { border: "1px solid black" },
 }));
 
+// ListBox,in which; it will be rendered to autocomplete
 const ListboxComponent = React.forwardRef(function ListboxComponent(
   props,
   ref
@@ -46,7 +47,7 @@ const ListboxComponent = React.forwardRef(function ListboxComponent(
       <div {...other}>
         <List
           height={250}
-          width={300}
+          width={420}
           rowHeight={itemSize}
           overscanCount={5}
           rowCount={itemCount}
@@ -70,21 +71,21 @@ export default function Search({ data, setSearch }) {
     <Autocomplete
       id="virtualize"
       classes={classes}
-      style={{ width: "19em" }}
+      style={{ width: "27em" }}
+      listbox={{ backgroundColor: "black" }}
       ListboxComponent={ListboxComponent}
+      options={data.map((x) => x.title)}
+      disablePortal={true}
       onChange={(event, value) => setSearch(value)}
       onInputChange={() => setSearch(value)}
-      options={data.map((x) => x.title)}
-      listbox={{ backgroundColor: "black" }}
-      disablePortal={true}
       renderInput={(params) => (
         <TextField
           {...params}
-          value={value}
-          onChange={(event) => setSearch(event.target.value)}
           variant="outlined"
           label="Search"
+          value={value}
           fullWidth
+          onChange={(event) => setSearch(event.target.value)}
         />
       )}
     />

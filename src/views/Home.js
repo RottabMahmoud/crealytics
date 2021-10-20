@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
-import Header from "../components/Header";
 // For CSV Conversion I used the d3 Library
 import { csv } from "d3";
+import Header from "../components/Header";
 
 import ProductList from "../components/ProductList.js";
 
