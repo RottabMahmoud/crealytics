@@ -4,6 +4,8 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import { List } from "react-virtualized";
 import { makeStyles } from "@material-ui/core/styles";
 
+import "../App.css";
+
 const useStyles = makeStyles((theme) => ({
   inputRoot: {
     color: "blue",
@@ -11,20 +13,24 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#f2f2f2",
     "& .MuiOutlinedInput-notchedOutline": {
       borderWidth: "2px",
-      borderColor: "blue",
+      borderColor: "green",
     },
     "&:hover .MuiOutlinedInput-notchedOutline": {
       borderWidth: "2px",
-      borderColor: "blue",
+      borderColor: "green",
     },
     "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
       borderWidth: "2px",
-      borderColor: "blue",
+      borderColor: "red",
+    },
+    "& .MuiAutocomplete-groupLabel": {
+      border: "1px solid black",
     },
   },
   clearIndicator: {
     display: "none",
   },
+  paper: { border: "1px solid black" },
 }));
 
 const ListboxComponent = React.forwardRef(function ListboxComponent(
@@ -33,7 +39,7 @@ const ListboxComponent = React.forwardRef(function ListboxComponent(
 ) {
   const { children, role, ...other } = props;
   const itemCount = Array.isArray(children) ? children.length : 0;
-  const itemSize = 36;
+  const itemSize = 90;
 
   return (
     <div ref={ref}>
@@ -64,11 +70,13 @@ export default function Search({ data, setSearch }) {
     <Autocomplete
       id="virtualize"
       classes={classes}
-      style={{ width: 300 }}
+      style={{ width: "19em" }}
       ListboxComponent={ListboxComponent}
       onChange={(event, value) => setSearch(value)}
       onInputChange={() => setSearch(value)}
       options={data.map((x) => x.title)}
+      listbox={{ backgroundColor: "black" }}
+      disablePortal={true}
       renderInput={(params) => (
         <TextField
           {...params}
