@@ -34,6 +34,9 @@
 
 ## npm i react-virtualized, for handling large Input Autocomplete
 
+## Created Search as a Separate Component, while adding to it the Autocomplete UI, using reac-t virutalized and added the onChange 
+## Functionality as well
+
 ### `yarn start`
 
 Runs the app in the development mode.\
