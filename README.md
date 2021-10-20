@@ -32,6 +32,8 @@
 
 ## Fixed the Search to work dynamically with the Main Product List Pagination
 
+## npm i react-virtualized, for handling large Input Autocomplete
+
 ### `yarn start`
 
 Runs the app in the development mode.\

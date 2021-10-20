@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Search from "./Search.js";
 import Typography from "@mui/material/Typography";
 
 import { List, ListItem, makeStyles, Divider, Box } from "@material-ui/core";
@@ -47,11 +47,12 @@ const ProductList = ({ data }) => {
     <div>
       <div className="toolbar">
         {/* Our Input Search Field */}
-        <input
+        {/* <input
           type="text"
           placeholder="Search..."
           onChange={(event) => setSearchTerm(event.target.value)}
-        />
+        /> */}
+        <Search data={data} setSearch={setSearchTerm} />
       </div>
       <List dense compoent="span">
         {data
