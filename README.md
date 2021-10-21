@@ -47,17 +47,19 @@ npm i react-virtualized
 
 ## Project Hirearchy
 
-- public folder, - data
-- src - components, views, tests
-- - The App.js is rendering our Home.js Component, which is our main view
+- public folder, - data.
+- src, - components, - views, - tests.
+- - The App.js is rendering our Home.js Component, which is our main view.
 - - The Home.js renders both a Header.js containing the web page header, and the ProductList.js, which is our list of Products.
-- - The ProductList.js renders the Search.js, which is our Search Input Field, and the Images.js Component, which is rendered upon any Item Selection
+- - The ProductList.js renders the Search.js, which is our Search Input Field, and the Images.js Component, which is rendered upon any Item Selection.
 
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-# Getting Started
+## Badge
+
+https://img.shields.io/badge/Mahmoud%20Rottab-Crealytics-red
 
 ## Created the Header Component using Appbar from the Material UI components
 
