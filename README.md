@@ -47,9 +47,11 @@ npm i react-virtualized
 
 ## Project Hirearchy
 
-- public folder
-- src - components
-- - views
+- public folder, - data
+- src - components, views, tests
+- - The App.js is rendering our Home.js Component, which is our main view
+- - The Home.js renders both a Header.js containing the web page header, and the ProductList.js, which is our list of Products.
+- - The ProductList.js renders the Search.js, which is our Search Input Field, and the Images.js Component, which is rendered upon any Item Selection
 
 ## License
 
