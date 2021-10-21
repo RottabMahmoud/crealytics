@@ -59,7 +59,7 @@ npm i react-virtualized
 
 ## Badge
 
-https://img.shields.io/badge/Mahmoud%20Rottab-Crealytics-red
+<a href="crealytics.com"> <img src="https://img.shields.io/badge/Mahmoud%20Rottab-Crealytics-red" alt="Crealytee" /> </a>
 
 ## Created the Header Component using Appbar from the Material UI components
 
