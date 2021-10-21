@@ -3,7 +3,7 @@
 What the Application does.
 
 - A web page that Parsed and loaded all the items from the provided product feed file (products.csv) into a List, containing Serial Number, title, thumbail img, price, and an after sale price, that is paginated 100 item per page.
-- Every Item in the list is Expandable upon selection to show the rest of the Images.
+- Every Item in the list is expandable upon selection to show the rest of the Images of the selected Item.
 - The web page containes a Search Input Field at the top, which dynamically updates our list upon every key press, and have an Autocomplete Feature as well.
 
 The Technologies I've used.
@@ -17,7 +17,7 @@ The Technologies I've used.
 Some of the challenges I've faced and how I've tackled them.
 
 - Parsin a CSV file, using d3 was very helpful.
-- Rendering 20k Items into our display, and handling pagination upon filtering, done filter() just before we slive() to show each Item list per page.
+- Rendering 20k Items into our display, and handling pagination upon filtering, done filter() just before we slice() to show each Item list per page.
 
 ## Installation
 
@@ -45,11 +45,11 @@ npm i react-virtualized
 
 ```
 
-## Contributing
+## Project Hirearchy
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
+- public folder
+- src - components
+- - views
 
 ## License
 
