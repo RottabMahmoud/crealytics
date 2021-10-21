@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
-import "../App.css";
-// For CSV Conversion I used the d3 Library
-import { csv } from "d3";
+import { csv } from "d3"; // For CSV Conversion I used the d3 Library
 import Header from "../components/Header";
-
 import ProductList from "../components/ProductList.js";
 
 function Home() {
-  // Our list of Products **state, using React Hooks
+  /**
+   * Our list of Products **STATE, using React Hooks.
+   */
   const [products, setProducts] = useState([]);
 
   /**
    * Use effect to fetch the data once the component is rendered,
-   * and passing and empty array as the second argument to make it run only once
+   * and passing and empty array as the second argument to make it run only once.
    */
   useEffect(() => {
     csv("/data/products.csv").then((data) => {
@@ -20,14 +19,12 @@ function Home() {
     });
   }, []);
 
-  console.log(products, "productSSS");
   return (
     <div>
+      {/* Our Header */}
       <Header />
-      <div>
-        {/* Our Product List */}
-        <ProductList data={products} />
-      </div>
+      {/* Our Product List */}
+      <ProductList data={products} />
     </div>
   );
 }

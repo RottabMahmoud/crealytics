@@ -1,12 +1,15 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import "../App.css";
+import { List } from "react-virtualized";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@material-ui/core/TextField";
-import { List } from "react-virtualized";
-import { makeStyles } from "@material-ui/core/styles";
 
-// Use Styles for styling components
-const useStyles = makeStyles((theme) => ({
+/**
+ * Use Styles for styling components, to style our Search Input Field, and the text after selection from the
+ * autoComplete suggestions.
+ */
+const useStyles = makeStyles(() => ({
   inputRoot: {
     color: "blue",
     fontFamily: "Roboto Mono",
@@ -33,7 +36,9 @@ const useStyles = makeStyles((theme) => ({
   paper: { border: "1px solid black" },
 }));
 
-// ListBox,in which; it will be rendered to autocomplete
+/**
+ * ListBox,in which; it will be rendered to autocomplete.
+ */
 const ListboxComponent = React.forwardRef(function ListboxComponent(
   props,
   ref
@@ -46,17 +51,17 @@ const ListboxComponent = React.forwardRef(function ListboxComponent(
     <div ref={ref}>
       <div {...other}>
         <List
-          height={250}
-          width={420}
-          rowHeight={itemSize}
-          overscanCount={5}
-          rowCount={itemCount}
+          role={role}
           rowRenderer={(props) => {
             return React.cloneElement(children[props.index], {
               style: props.style,
             });
           }}
-          role={role}
+          rowCount={itemCount}
+          rowHeight={itemSize}
+          height={250}
+          width={420}
+          overscanCount={5}
         />
       </div>
     </div>
@@ -69,23 +74,23 @@ export default function Search({ data, setSearch }) {
 
   return (
     <Autocomplete
-      id="virtualize"
-      classes={classes}
-      style={{ width: "27em" }}
-      listbox={{ backgroundColor: "black" }}
       ListboxComponent={ListboxComponent}
       options={data.map((x) => x.title)}
+      onChange={(event, value) => setSearch(value)} // for handling the auto complete selection upon selection
+      id="virtualize"
+      classes={classes}
+      style={{ width: "26.4em" }}
+      listbox={{ backgroundColor: "black" }}
       disablePortal={true}
-      onChange={(event, value) => setSearch(value)}
-      onInputChange={() => setSearch(value)}
       renderInput={(params) => (
         <TextField
-          {...params}
-          variant="outlined"
-          label="Search"
+          onChange={(event) => setSearch(event.target.value)} // Upon typing it dynamically starts to update the rendered list
           value={value}
+          label="Search"
+          {...params}
+          id="searchField"
+          variant="outlined"
           fullWidth
-          onChange={(event) => setSearch(event.target.value)}
         />
       )}
     />

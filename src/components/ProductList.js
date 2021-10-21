@@ -1,64 +1,71 @@
 import React, { useState } from "react";
-import Search from "./Search.js";
-import Typography from "@mui/material/Typography";
 import { List, ListItem, makeStyles, Divider, Box } from "@material-ui/core";
+import Search from "./Search.js";
 import Avatar from "@material-ui/core/Avatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Popover from "@mui/material/Popover";
 import Images from "../components/Images.js";
 import Pagination from "@mui/material/Pagination";
-
+// Styling our list of items
 const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "100%",
-    backgroundColor: theme.palette.background.paper,
-  },
   item: {
     padding: theme.spacing(1.2),
   },
   avatar: { marginRight: theme.spacing(5) },
   paginator: {
     justifyContent: "center",
-    padding: "10px",
+    margin: "1em",
   },
 }));
+// Styling the Pop over postion
 const PopoverStyle = {
   top: "50px",
 };
 
 const ProductList = ({ data }) => {
-  // Search Input field state
+  /**
+   * Search Input field state.
+   */
   const [searchTerm, setSearchTerm] = useState("");
-
-  // PopOver State and functions for expansion
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [images, setImages] = useState();
-
+  /**
+   * The List Item OnClick Event to Trigger the Popover and pass the Additional Images of the selected Item.
+   */
   const handleClick = (event, value) => {
     setAnchorEl(event.currentTarget);
     setImages(value);
   };
 
+  /**
+   * PopOver State and functions for expansion.
+   */
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const handleClose = () => {
     setAnchorEl(null);
   };
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
 
-  // PAGINATION Handling
-  const classes = useStyles();
-  const itemsPerPage = 100;
+  // Our Additional Images array of Strings
+  const [images, setImages] = useState();
+
+  /**
+   * PAGINATION Handling.
+   */
   const [page, setPage] = React.useState(1);
+  const classes = useStyles();
+  // A Function to Calculate the Total Number of Pages
+  const itemsPerPage = 100; // No of Items per Page
   const noOfPages = Math.ceil(
     data.filter((val) => {
       if (searchTerm === "") {
         return val;
       } else if (val.title.toLowerCase().includes(searchTerm.toLowerCase()))
         return val;
+      return null;
     }).length / itemsPerPage
   );
-
+  // Renders the selected page items upon selection of paging
   const handleChange = (event, value) => {
     setPage(value);
   };
@@ -77,6 +84,7 @@ const ProductList = ({ data }) => {
               val.title.toLowerCase().includes(searchTerm.toLowerCase())
             )
               return val;
+            return null;
           })
           .slice((page - 1) * itemsPerPage, page * itemsPerPage)
           .map((projectItem) => {
@@ -89,21 +97,24 @@ const ProductList = ({ data }) => {
                 }}
               >
                 <ListItemText
+                  className={classes.item}
                   id={projectItem.gtin}
                   primary={projectItem.title}
-                  secondary={`Serial-${
+                  secondary={`GTIN-${
                     projectItem.gtin
-                  } Type-${projectItem.gender.toUpperCase()} Price-${
+                  }, GENDER-${projectItem.gender
+                    .charAt(0)
+                    .toUpperCase()
+                    .concat(...projectItem.gender.slice(1))}, PRICE-${
                     projectItem.price
-                  }
-                    Sale-Price-${projectItem.sale_price}`}
-                  className={classes.item}
+                  },
+                    SALE-PRICE-${projectItem.sale_price}`}
                 />
                 <ListItemAvatar>
                   <Avatar
-                    alt={`Avatar n°${projectItem + 1}`}
-                    src={projectItem.image_link}
                     className={classes.avatar}
+                    src={projectItem.image_link}
+                    alt={`Avatar n°${projectItem + 1}`}
                   />
                 </ListItemAvatar>
               </ListItem>
@@ -112,8 +123,8 @@ const ProductList = ({ data }) => {
       </List>
       {/* The Expansion Popover */}
       <Popover
-        id={id}
         style={PopoverStyle}
+        id={id}
         anchorOrigin={{
           vertical: "top",
           horizontal: "left",
@@ -129,15 +140,15 @@ const ProductList = ({ data }) => {
       {/* Pagination Component */}
       <Box component="span">
         <Pagination
+          page={page}
           classes={{ ul: classes.paginator }}
+          count={noOfPages}
+          onChange={handleChange}
           color="primary"
           size="large"
           showFirstButton
           showLastButton
           defaultPage={1}
-          page={page}
-          count={noOfPages}
-          onChange={handleChange}
         />
       </Box>
     </div>

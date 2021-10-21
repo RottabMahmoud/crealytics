@@ -34,11 +34,17 @@
 
 ## npm i react-virtualized, for handling large Input Autocomplete
 
-## Created Search as a Separate Component, while adding to it the Autocomplete UI, using reac-t virutalized and added the onChange
+## Created Search as a Separate Component, while adding to it the Autocomplete UI, using react virutalized and added the onChange
 
 ## Functionality as well, on the Search Input Field
 
 ## Created a Images Component, and added a Popover Component to be rendered once an Item is selected for Expansion
+
+## Used React testing library using jest to test all of my Components Intial rendering
+
+## Tested the Search Input field value to be changed upon typing
+
+## Tested all of the buttons are working in the ProductList Component. to make sure that we can expand an item, or use the pagination pannel
 
 ### `yarn start`
 
