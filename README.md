@@ -19,7 +19,7 @@ Some of the challenges I've faced and how I've tackled them.
 - Parsin a CSV file, using d3 was very helpful.
 - Rendering 20k Items into our display, and handling pagination upon filtering, done filter() just before we slice() to show each Item list per page.
 
-## Installation
+## Project Installation
 
 ```bash
 npm install
@@ -31,17 +31,23 @@ or
 yarn
 ```
 
-### `yarn start`
+## To Start the App
 
-Runs the app in the development mode.
+```bash
+yarn start
+```
 
-### `yarn test`
+## For Running the Tests
 
-Launches the test runner in the interactive watch mode.
+```bash
+yarn test
+```
 
-### `yarn build`
+## For Building
 
-Builds the app for production to the `build` folder.
+```bash
+yarn test
+```
 
 ## Usage
 
