@@ -59,11 +59,10 @@ npm install @mui/icons-material
 npm install @material-ui/core
 npm install d3
 npm i react-virtualized
-
 ```
 
 ## Project Hierarchy
-
+```bash
   crealytics    
     ├─ public
     │  ├─ favicon.ico
@@ -94,7 +93,7 @@ npm i react-virtualized
     ├─ package.json
     ├─ README.md
     └─ yarn.lock
-
+```
 
 ## License
 
