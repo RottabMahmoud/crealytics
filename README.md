@@ -85,7 +85,6 @@ npm i react-virtualized
     │  │  └─ Home.js         ### Our Home Component
     │  │─ App.css
     │  │─ App.js
-    │  │─ index.js
     │  │─ reportWebVitals
     │  │─ setupTests.js
     ├─ .gitignore 
