@@ -87,6 +87,7 @@ npm i react-virtualized
     │  │─ App.css
     │  │─ App.js
     │  │─ index.js
+    │  │─ reportWebVitals
     │  │─ setupTests.js
     ├─ .gitignore 
     ├─ node_modules
