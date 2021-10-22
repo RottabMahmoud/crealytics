@@ -15,7 +15,6 @@
 - React Testing Library/ jest
 - JavaScript
 - React hooks
-- Styled components
 
 ## Some of the challenges I've faced and how I've tackled them
 
