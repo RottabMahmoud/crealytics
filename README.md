@@ -1,6 +1,6 @@
 # Crealytics Case Study Description
 
-## What the Application does.
+## What the Application does
 
 - A web page that Parsed and loaded all the items from the provided product feed file (products.csv) into a List, containing Serial Number, title, thumbail img, price, and an after sale price, that is paginated 100 item per page.
 - Every Item in the list is expandable upon selection to show the rest of the Images of the selected Item.
@@ -17,7 +17,7 @@
 - React hooks
 - Styled components
 
-## Some of the challenges I've faced and how I've tackled them.
+## Some of the challenges I've faced and how I've tackled them
 
 - Parsin a CSV file, using d3 was very helpful.
 - Rendering 20k Items into our display, and handling pagination upon filtering, done filter() just before we slice() to show each Item list per page.
