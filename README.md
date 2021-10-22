@@ -101,5 +101,5 @@ npm i react-virtualized
 
 ## Badge
 
-<a target="_blank" href="https://www.crealytics.com"> <img src="https://img.shields.io/badge/Mahmoud%20Rottab-Crealytee-red" alt="Crealytee" /> </a>
+<a href="https://www.crealytics.com"> <img src="https://img.shields.io/badge/Mahmoud%20Rottab-Crealytee-red" alt="Crealytee" /> </a>
   
