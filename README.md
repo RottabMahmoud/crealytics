@@ -6,7 +6,7 @@
 - Every Item in the list is expandable upon selection to show the rest of the Images of the selected Item.
 - The web page containes a Search Input Field at the top, which dynamically updates our list upon every key press, and have an Autocomplete Feature as well.
 
-## Languages,tools & technologies
+## Technologies
 
 - Material UI
 - d3
