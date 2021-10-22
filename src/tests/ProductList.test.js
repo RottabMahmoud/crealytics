@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import ProductList from "../components/ProductList.js";
 
-test("in intial render, the buttons are working", () => {
+test("ProductList in intial render", () => {
   render(
     <ProductList
       data={[
@@ -19,5 +19,4 @@ test("in intial render, the buttons are working", () => {
       ]}
     />
   );
-  // screen.getByRole("");
 });

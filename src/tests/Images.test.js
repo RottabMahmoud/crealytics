@@ -9,5 +9,4 @@ test("renders the Images Component", () => {
       }
     />
   );
-  // screen.debug();
 });
