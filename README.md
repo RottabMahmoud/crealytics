@@ -44,7 +44,7 @@ yarn test
 ## For Building
 
 ```bash
-yarn test
+yarn build
 ```
 
 ## Usage
