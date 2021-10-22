@@ -1,20 +1,23 @@
-# Crealytics Case Study
+# Crealytics Case Study Description
 
-What the Application does.
+## What the Application does.
 
 - A web page that Parsed and loaded all the items from the provided product feed file (products.csv) into a List, containing Serial Number, title, thumbail img, price, and an after sale price, that is paginated 100 item per page.
 - Every Item in the list is expandable upon selection to show the rest of the Images of the selected Item.
 - The web page containes a Search Input Field at the top, which dynamically updates our list upon every key press, and have an Autocomplete Feature as well.
 
-The Technologies I've used.
+## Languages,tools & technologies
 
 - Material UI
 - d3
 - react-virtualized
 - React
 - React Testing Library/ jest
+- JavaScript
+- React hooks
+- Styled components
 
-Some of the challenges I've faced and how I've tackled them.
+## Some of the challenges I've faced and how I've tackled them.
 
 - Parsin a CSV file, using d3 was very helpful.
 - Rendering 20k Items into our display, and handling pagination upon filtering, done filter() just before we slice() to show each Item list per page.
@@ -22,13 +25,9 @@ Some of the challenges I've faced and how I've tackled them.
 ## Project Installation
 
 ```bash
-npm install
-```
-
-or
-
-```bash
-yarn
+git clone https://github.com/Rottabx/crealytics.git
+cd crealytics
+yarn 
 ```
 
 ## To Start the App
@@ -65,11 +64,37 @@ npm i react-virtualized
 
 ## Project Hierarchy
 
-- public folder, - data.
-- src, - components, - views, - tests.
-- The App.js is rendering our Home.js Component, which is our main view.
-- The Home.js renders both a Header.js containing the web page header, and the ProductList.js, which is our list of Products.
-- The ProductList.js renders the Search.js, which is our Search Input Field, and the Images.js Component, which is rendered upon any Item Selection.
+  crealytics    
+    ├─ public
+    │  ├─ favicon.ico
+    │  ├─ index.html
+    │  ├─ data
+    │     ├─ products.csv
+    ├─ src                   ### root Folder
+    │  ├─ index.js           ### project index
+    │  ├─ components         ### used to group all the project components
+    │  │  ├─ Header.js       ### Our Header
+    │  │  ├─ Images.js       ### Images Pop Up
+    │  │  ├─ ProductList.js  ### Our List of Items
+    │  │  ├─ Search.js       ### Our Search Input Field
+    │  ├─ tests              ### Tests folder folder
+    │  │  ├─ Header.test.js    
+    │  │  ├─ Home.test.js      
+    │  │  ├─ Images.test.js   
+    │  │  └─ ProductList.test.js 
+    │  │  └─ Search.test.js
+    │  ├─ views              ### views folder
+    │  │  └─ Home.js         ### Our Home Component
+    │  │─ App.css
+    │  │─ App.js
+    │  │─ index.js
+    │  │─ setupTests.js
+    ├─ .gitignore 
+    ├─ node_modules
+    ├─ package.json
+    ├─ README.md
+    └─ yarn.lock
+
 
 ## License
 
@@ -78,3 +103,4 @@ npm i react-virtualized
 ## Badge
 
 <a href="crealytics.com"> <img src="https://img.shields.io/badge/Mahmoud%20Rottab-Crealytee-red" alt="Crealytee" /> </a>
+  
