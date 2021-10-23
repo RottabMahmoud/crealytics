@@ -3,8 +3,7 @@
 ## What the Application does
 
 - A web page that Parsed and loaded all the items from the provided product feed file (products.csv) into a List, containing Serial Number, title, thumbail img, price, and an after sale price, that is paginated 100 item per page.
-- Every Item in the list is expandable upon selection to show the rest of the Additional Images of the selected Item, and the Images are 
-- fetched asynchronously.
+- Every Item in the list is expandable upon selection to show the rest of the Additional Images of the selected Item, and the Images are fetched asynchronously.
 - The web page containes a Search Input Field at the top, as well as a Couple of more Gender OnSelectDropDown Filter and OnSale Checkbox,    - which dynamically updates our list upon every key press, or Selection, and have an Autocomplete Feature as well.
 
 ## Technologies
