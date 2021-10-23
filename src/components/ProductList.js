@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { List, ListItem, makeStyles, Divider, Box } from "@material-ui/core";
 import Search from "./Search.js";
+import Filters from "./Filters.js";
+
 import Avatar from "@material-ui/core/Avatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
@@ -17,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     margin: "1em",
   },
+  filter: {
+    margin: "1em",
+  },
 }));
 // Styling the Pop over postion
 const PopoverStyle = {
@@ -28,6 +33,97 @@ const ProductList = ({ data }) => {
    * Search Input field state.
    */
   const [searchTerm, setSearchTerm] = useState("");
+
+  /**
+   * Filters states and Function Handling.
+   */
+  const [gender, setGender] = React.useState("");
+  const [checked, setChecked] = React.useState(false);
+
+  const selectOnChange = (event) => {
+    setGender(event.target.value);
+    filterGender(event.target.value);
+  };
+  const filterGender = (str) => {
+    let temp = [];
+    for (let i = 0; i < listOfItems.length; i++) {
+      if (listOfItems[i].gender.toLowerCase() === str.toLowerCase())
+        temp.unshift(listOfItems[i]);
+      else temp.push(listOfItems[i]);
+    }
+    setListOfItems(temp);
+  };
+  const handlePriceCheck = (event) => {
+    setChecked(!checked);
+    if (gender === "" && !checked) checkSaleOnEmptyGender(checked);
+    if (gender === "" && checked) checkSaleOnEmptyGender(checked);
+    if (gender === "Male" && checked)
+      checkSaleOnExistingGender(checked, "male");
+    if (gender === "Male" && !checked)
+      checkSaleOnExistingGender(checked, "male");
+    if (gender === "Female" && checked)
+      checkSaleOnExistingGender(checked, "Female");
+    if (gender === "Female" && !checked)
+      checkSaleOnExistingGender(checked, "Female");
+    if (gender === "Unisex" && checked)
+      checkSaleOnExistingGender(checked, "Unisex");
+    if (gender === "Unisex" && !checked)
+      checkSaleOnExistingGender(checked, "Unisex");
+  };
+  const checkSaleOnEmptyGender = (bool) => {
+    let temp = [];
+
+    if (!bool) {
+      listOfItems.forEach((x) => {
+        if (x.sale_price.split(" ")[0] < x.price.split(" ")[0]) temp.unshift(x);
+        else temp.push(x);
+      });
+      setListOfItems(temp);
+    } else {
+      listOfItems.forEach((x) => {
+        // console.log(x.sale_price.split(" ")[0], "BOOO");
+        if (+x.sale_price.split(" ")[0] === +x.price.split(" ")[0])
+          temp.unshift(x);
+        else temp.push(x);
+      });
+      setListOfItems(temp);
+    }
+  };
+  const checkSaleOnExistingGender = (bool, gender) => {
+    let temp = [];
+
+    if (!bool) {
+      listOfItems.forEach((x) => {
+        if (
+          gender.toLowerCase() === x.gender.toLowerCase() &&
+          +x.sale_price.split(" ")[0] < +x.price.split(" ")[0]
+        )
+          temp.unshift(x);
+        else temp.push(x);
+      });
+      setListOfItems(temp);
+    } else {
+      listOfItems.forEach((x) => {
+        // console.log(x.sale_price.split(" ")[0], "BOOO");
+        if (
+          gender.toLowerCase() === x.gender.toLowerCase() &&
+          +x.sale_price.split(" ")[0] === +x.price.split(" ")[0]
+        )
+          temp.unshift(x);
+        else temp.push(x);
+      });
+      setListOfItems(temp);
+    }
+  };
+
+  /**
+   * Our Product List state, and use Effect to set it to be equal to the data coming as our prop, once the ProductList
+   * is Rendered
+   */
+  const [listOfItems, setListOfItems] = useState([]);
+  useEffect(() => {
+    setListOfItems(data);
+  }, [data]);
   /**
    * The List Item OnClick Event to Trigger the Popover and pass the Additional Images of the selected Item.
    */
@@ -57,7 +153,7 @@ const ProductList = ({ data }) => {
   // A Function to Calculate the Total Number of Pages
   const itemsPerPage = 100; // No of Items per Page
   const noOfPages = Math.ceil(
-    data.filter((val) => {
+    listOfItems.filter((val) => {
       if (searchTerm === "") {
         return val;
       } else if (val.title.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -71,12 +167,19 @@ const ProductList = ({ data }) => {
   };
   return (
     <div>
-      <div className="toolbar">
+      <div className={classes.filter}>
         {/* Our Input Search Field */}
-        <Search data={data} setSearch={setSearchTerm} />
+        <Search data={listOfItems} setSearch={setSearchTerm} />
+        {/* our Filters */}
+        <Filters
+          valueSelect={gender}
+          handleOnSelect={selectOnChange}
+          valueCheck={checked}
+          handlePrice={handlePriceCheck}
+        />
       </div>
       <List dense compoent="span">
-        {data
+        {listOfItems
           .filter((val) => {
             if (searchTerm === "") {
               return val;

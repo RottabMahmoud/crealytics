@@ -2,10 +2,19 @@
   text-align: center;
 }
 
-.toolbar {
-  margin: 1em;
+.MuiAutocomplete-option {
+  border-bottom: 0.2em dotted red;
+}
+.MuiList-root {
+  display: flex;
+  flex-direction: column;
 }
 
-.MuiAutocomplete-option {
-  border-bottom: 0.2em solid red;
+.image {
+  display: block;
+  width: 15em;
+  height: 15em;
+  object-fit: contain;
+  opacity: 1;
+  transition: opacity 0.5s;
 }

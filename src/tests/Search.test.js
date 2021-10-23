@@ -50,7 +50,7 @@ describe("Search Input value", () => {
 
     const input = container.getByDisplayValue("");
 
-    fireEvent.change(input, { target: { value: "42" } });
-    expect(input.value).toBe("42");
+    fireEvent.change(input, { target: { value: "nike" } });
+    expect(input.value).toBe("nike");
   });
 });

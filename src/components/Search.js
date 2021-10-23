@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import "../App.css";
 import { List } from "react-virtualized";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@material-ui/core/TextField";
@@ -28,7 +27,7 @@ const useStyles = makeStyles(() => ({
     },
     "& .MuiAutocomplete-groupLabel": {
       border: "1px solid black",
-    },
+    }
   },
   clearIndicator: {
     display: "none",

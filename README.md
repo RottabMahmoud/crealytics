@@ -3,8 +3,9 @@
 ## What the Application does
 
 - A web page that Parsed and loaded all the items from the provided product feed file (products.csv) into a List, containing Serial Number, title, thumbail img, price, and an after sale price, that is paginated 100 item per page.
-- Every Item in the list is expandable upon selection to show the rest of the Images of the selected Item.
-- The web page containes a Search Input Field at the top, which dynamically updates our list upon every key press, and have an Autocomplete Feature as well.
+- Every Item in the list is expandable upon selection to show the rest of the Additional Images of the selected Item, and the Images are 
+- fetched asynchronously.
+- The web page containes a Search Input Field at the top, as well as a Couple of more Gender OnSelectDropDown Filter and OnSale Checkbox,    - which dynamically updates our list upon every key press, or Selection, and have an Autocomplete Feature as well.
 
 ## Technologies
 
@@ -15,6 +16,7 @@
 - React Testing Library/ jest
 - JavaScript
 - React hooks
+- react-async-image
 
 ## Some of the challenges I've faced and how I've tackled them
 
@@ -49,7 +51,7 @@ yarn build
 
 ## Usage
 
-Used Material UI as a Component Library, d3 for CSV data conversion to JSON, and react-virtualized for handling large Input Autocomplete.
+Used Material UI as a Component Library, d3 for CSV data conversion to JSON, react-virtualized for handling large Input Autocomplete, and react-async-image for image loading.
 
 ```bash
 npm install @mui/material
@@ -58,6 +60,7 @@ npm install @mui/icons-material
 npm install @material-ui/core
 npm install d3
 npm i react-virtualized
+npm i react-async-image
 ```
 
 ## Project Hierarchy
@@ -71,11 +74,13 @@ npm i react-virtualized
     ├─ src                   ### root Folder
     │  ├─ index.js           ### project index
     │  ├─ components         ### used to group all the project components
+    │  │  ├─ Filters.js      ### Our Extra Filters
     │  │  ├─ Header.js       ### Our Header
     │  │  ├─ Images.js       ### Images Pop Up
     │  │  ├─ ProductList.js  ### Our List of Items
     │  │  ├─ Search.js       ### Our Search Input Field
     │  ├─ tests              ### Tests folder folder
+    │  │  ├─ Filters.test.js 
     │  │  ├─ Header.test.js    
     │  │  ├─ Home.test.js      
     │  │  ├─ Images.test.js   
@@ -90,6 +95,7 @@ npm i react-virtualized
     ├─ .gitignore 
     ├─ node_modules
     ├─ package.json
+    ├─ package-lock.json
     ├─ README.md
     └─ yarn.lock
 ```
