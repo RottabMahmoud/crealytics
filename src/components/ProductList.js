@@ -216,7 +216,8 @@ const ProductList = ({ data }) => {
                 <ListItemAvatar>
                   <Avatar
                     className={classes.avatar}
-                    src={projectItem.image_link}
+                    // src={projectItem.image_link}
+                    src={'https://img.joomcdn.net/3936fa3e342172b935c711cc9f44f89aced1a213_original.jpeg'}
                     alt={`Avatar n°${projectItem + 1}`}
                   />
                 </ListItemAvatar>
